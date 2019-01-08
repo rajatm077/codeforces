@@ -1,31 +1,29 @@
+/**
+ * Created by MalhotR1 on 05/20/2018.
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collection;
 
-/**
- * Created by MalhotR1 on 12/29/2017.
- */
-public class Taxi {
+public class GravityFlip {
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             int N = Integer.parseInt(br.readLine().trim());
+            int[] arr = new int[N];
             String[] in = br.readLine().trim().split(" ");
-            int[] arr = new int[in.length];
-            int[] grps = new int[4];
-            int total = 0;
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = Integer.parseInt(in[i]);
-                grps[arr[i] - 1]++;
             }
-            total += grps[3] + grps[2];
-            if (grps[0] >= grps[2]) {
-                grps[0] = grps[0] - grps[2];
+
+            Arrays.sort(arr);
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i] + " ");
             }
-            else {
-                grps[0] = 0;
-            }
-            total += (grps[1]*2 + grps[0] + 3) / 4;
-            System.out.println(total);
+
         }
     }
+
 }
